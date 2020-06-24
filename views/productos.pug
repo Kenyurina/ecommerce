@@ -1,0 +1,36 @@
+extends layout.pug
+
+block content
+    div.container-fluid
+        div.row
+        h1 Listado de Productos.
+        form(method="GET" action="/addprod")            
+            input.btn.btn-success(type="submit", value="Agregar")
+        -if(data.length)
+            table.table.table-striped
+                thead.thead-dark
+                    tr
+                        th Id
+                        th Nombre
+                        th Descripcion
+                        th Precio
+                        th Cantidad
+                        th Foto                         
+                    each productos in data
+                        tr
+                            td(scope="col")=productos.id
+                            td(scope="col")=productos.nombre
+                            td(scope="col")=productos.descripcion
+                            td(scope="col")=productos.precio
+                            td(scope="col")=productos.cantidad
+                            td(scope="col")=productos.foto
+                            td(scope="col")
+                                form(method="GET" action="/editprod/" + productos.id)            
+                                    input.button.btn.btn-primary( type="submit", value="Editar")
+                            td(scope="col") 
+                                form(method="POST" action="/deleteProd/" + productos.id)           
+                                    input.button.btn.btn-danger(type="submit", value="Eliminar")
+        -else
+            p.error No existen Usuarios en la Base de Datos.
+
+             //+ usuarios.id 

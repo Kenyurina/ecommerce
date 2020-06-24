@@ -1,0 +1,28 @@
+extends layout.pug
+
+block content
+    div.container-fluid
+        div.row
+        h1 Editar producto
+        form(action="/updateProd" method="POST" class="card-body")
+            div(class="form-group")
+                label(for="exampleInputEmail1") Id
+                input(type="text" class="form-control", name="idprodu", value="" + data[0].id, disabled, required)
+                input(type="hidden", name="id", value="" + data[0].id, required)
+            div(class="form-group")
+                label(for="exampleInputEmail1") Nombre
+                input(type="text" class="form-control", name="nombre", value="" + data[0].nombre , required)
+            div(class="form-group")
+                label(for="exampleInputEmail1") Descripcion
+                input(type="text" class="form-control", name="descripcion", value="" + data[0].descripcion , required)
+            div(class="form-group")
+                label(for="exampleInputPassword1") Precio
+                input(type="text" class="form-control", name="precio", value="" + data[0].precio, required)
+            div(class="form-group")
+                label(for="exampleInputPassword1") Cantidad
+                input(type="text" class="form-control", name="cantidad", value="" + data[0].cantidad, required)
+            div(class="form-group")
+                label(for="exampleInputPassword1") Foto
+                input(type="text" class="form-control", name="foto", value="" + data[0].foto, required)
+            div(class="form-group")
+            button(type="submit" class="btn btn-primary") Editar

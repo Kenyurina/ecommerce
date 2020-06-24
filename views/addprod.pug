@@ -1,0 +1,30 @@
+extends layout.pug
+
+block content
+    div.container-fluid
+        div.row
+        h1 Agregar Producto
+        form(action="/insetarprod" method="POST" class="card-body" enctype="multipart/form-data" )
+            div(class="form-group")
+                label(for="exampleInputEmail1") Nombre
+                input(type="text" class="form-control" name="nombre" placeholder="Nombre" required)
+            div(class="form-group")
+                label(for="exampleInputPassword1") Descripcion
+                input(type="text" class="form-control"  name="descripcion" placeholder="Descripcion" required)
+            div(class="form-group")
+                label(for="exampleInputPassword1") Precio
+                input(type="text" class="form-control"  name="precio" placeholder="Precio" required)
+            div(class="form-group")
+                label(for="exampleInputPassword1") Cantidad
+                input(type="text" class="form-control"  name="cantidad" placeholder="Cantidad" required)
+            div(class="form-group")
+                label(for="exampleInputPassword1") Foto
+                input(type="file" class="form-control"  name="foto" required)
+            div(class="form-group")
+            button(type="submit" class="btn btn-primary") Agregar
+
+
+                //- form(method="POST" action="fileupload" enctype="multipart/form-data") 
+                //-     input(type="file", name="filetoupload")
+                //-     input(type="submit")
+

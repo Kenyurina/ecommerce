@@ -1,0 +1,22 @@
+extends layout.pug
+
+block content
+    div.container-fluid
+        div.row
+        h1 Edit user Form
+        form(action="/updateUser" method="POST" class="card-body")
+            div(class="form-group")
+                label(for="exampleInputEmail1") Id
+                input(type="text", class="form-control", name="idcliente", value="" + data[0].id, disabled, required)
+                input(type="hidden", name="id", value="" + data[0].id, required)
+            div(class="form-group")
+                label(for="exampleInputEmail1") Username
+                input(type="text", class="form-control", name="username", value="" + data[0].email , required)
+            div(class="form-group")
+                label(for="exampleInputPassword1") Password
+                input(type="password", class="form-control", name="password", value="" + data[0].pass, required)
+            div(class="form-group")
+                label(for="exampleInputPassword1") Nombre
+                input(type="text", class="form-control", name="nombre", value="" + data[0].nombre, required)
+            div(class="form-group")
+            button(type="submit" class="btn btn-primary") Submit

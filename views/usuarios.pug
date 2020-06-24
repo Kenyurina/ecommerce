@@ -1,0 +1,31 @@
+extends layout.pug
+
+block content
+    div.container-fluid
+        div.row
+        h1 Usuarios.
+        -if(data.length)
+            table.table.table-striped
+                thead.thead-dark
+                    tr
+                        th Id
+                        th Email
+                        th Pass
+                        th Nombre
+                        th(colspan="2")  
+                            form(method="GET" action="/newuser")            
+                                input.btn.btn-success(type="submit", value="Agregar")
+                    each usuarios in data
+                        tr
+                            td(scope="col")=usuarios.id
+                            td(scope="col")=usuarios.email
+                            td(scope="col")=usuarios.pass
+                            td(scope="col")=usuarios.nombre
+                            td(scope="col")
+                                form(method="GET" action="/editusuario/" + usuarios.id)            
+                                    input.button.btn.btn-primary( type="submit", value="Editar")
+                            td(scope="col") 
+                                form(method="POST" action="/deleteUser/" + usuarios.id)            
+                                    input.button.btn.btn-danger(type="submit", value="Eliminar")
+        -else
+            p.error No existen Usuarios en la Base de Datos.
