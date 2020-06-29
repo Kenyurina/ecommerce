@@ -4,7 +4,7 @@ block content
     div.container-fluid
         div.row
         h1 Editar producto
-        form(action="/updateProd" method="POST" class="card-body")
+        form(action="/updateProd?_method=PUT" method="POST" class="card-body" enctype="multipart/form-data")
             div(class="form-group")
                 label(for="exampleInputEmail1") Id
                 input(type="text" class="form-control", name="idprodu", value="" + data[0].id, disabled, required)
@@ -22,7 +22,13 @@ block content
                 label(for="exampleInputPassword1") Cantidad
                 input(type="text" class="form-control", name="cantidad", value="" + data[0].cantidad, required)
             div(class="form-group")
-                label(for="exampleInputPassword1") Foto
-                input(type="text" class="form-control", name="foto", value="" + data[0].foto, required)
+                label(for="exampleInputPassword1") Foto 1
+                input(type="file" class="form-control"  name="foto1" required)
+            div(class="form-group")
+                label(for="exampleInputPassword1") Foto 2
+                input(type="file" class="form-control"  name="foto2" required)
+            div(class="form-group")
+                label(for="exampleInputPassword1") Foto 3
+                input(type="file" class="form-control"  name="foto3" required)
             div(class="form-group")
             button(type="submit" class="btn btn-primary") Editar

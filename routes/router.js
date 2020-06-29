@@ -31,11 +31,9 @@ Router
     .get('/productos', productosControllers.getall)
     .get('/addprod', productosControllers.addprod)
     .get('/editprod/:id', productosControllers.getone)
-    .post('/insetarprod', productosControllers.insert)
-    .post('/updateProd', productosControllers.update)
-    .post('/deleteProd/:id', productosControllers.delete)
-
-    // .post('/fileupload', productosControllers.addimg)
+    .post('/insetarprod', productosControllers.save)
+    .put('/updateProd', productosControllers.save)
+    .delete('/deleteProd/:id', productosControllers.delete)
 
 module.exports = Router
 

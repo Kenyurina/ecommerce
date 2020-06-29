@@ -1,9 +1,10 @@
 {
     "mysql" : {
-        "host" : "localhost",
+        "host" : "192.168.43.160",
+        "port" : "3306",
         "user" : "root",
-        "password" : "",
-        "database" : "ecommerce",
+        "password" : "1qazxsw2*-",
+        "database" : "ecomerce",
         "insecureAuth" : true
     }
 }
