@@ -1,15 +1,29 @@
 extends layout.pug
 
 block content
-    div.container-fluid
-        div.row
-        h1 Login Form
-        form(action="/auth" method="POST" class="card-body")
-            div(class="form-group")
-                label(for="exampleInputEmail1") Username
-                input(type="text" class="form-control" name="username" placeholder="Username" required)
-            div(class="form-group")
-                label(for="exampleInputPassword1") Password
-                input(type="password" class="form-control"  name="password" placeholder="Password" required)
-            div(class="form-group")
-            button(type="submit" class="btn btn-primary") Submit
+    div.body
+        div.contain
+            div.d-flex.justify-content-center.h-100
+                div.card
+                    img(src="/static/img/fondoFormularioNuevoTamaño.png", alt="")
+                    div.centered 
+                        h2 Bienvenido
+                        p Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    //- div.card-header                       
+                        h3 Sign In
+                    //- div.card-body
+                    div.container
+                        //- h4.title Admin Login
+                        form(action="/auth" method="POST" class="card-body")
+                            br
+                            div(class="form-group")
+                                //- label(for="exampleInputEmail1") Username
+                                input(type="text" class="form-control" name="username" placeholder="Ingresa tu correo electrónico" required)
+                            div(class="form-group")
+                                //- label(for="exampleInputPassword1") Password
+                                input(type="password" class="form-control"  name="password" placeholder="Ingresa tu clave" required)
+                            div(class="form-group")
+                            br
+                            button(type="submit" class="btn btn-primary") Entrar
+
+

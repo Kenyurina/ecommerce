@@ -1,0 +1,51 @@
+/*---------------- Admin Formulario------------------ */
+
+.body{
+    /* background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');  */
+    /* background-color: #72d2c6!important; */
+    background-image: linear-gradient(#72d2c6, blueviolet);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif; 
+}
+.contain{
+    height: 80%;
+    align-content: center; 
+}
+.card{
+    height: 100%;
+    margin-top: 5%;
+    margin-bottom: 15%;
+    width: 400px;
+    background-color: white;
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: -2px 3px 5px 5px rgba(0, 0, 0, 0.2);
+}   
+.title {
+    color: grey;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+.form-control {
+    border: 2px solid #72d2c6!important;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #72d2c6!important;
+    border-color: #72d2c6!important;
+    box-shadow: -2px 3px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.centered {
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+
+
+
+
+
