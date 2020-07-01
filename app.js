@@ -2,23 +2,23 @@
 
 const 
     express = require('express'),
+    fileUpload = require('express-fileupload'),
     app = express(),
     bodyParser = require('body-parser'),
     path = require('path'),
-    rautes = require('./routes/router.js'),
+    routes = require('./routes/router.js'),
     session = require('express-session'),
-    mysql = require('mysql'),
-    publicDir = express.static(`${__dirname}/public`),
     restFul = require('method-override')('_method')
 
 app
     .set('view engine', 'pug')
     .set('views', path.join(__dirname, '/views'))
+    .use(fileUpload())
     .use(bodyParser.urlencoded({extended:true}))
     .use(bodyParser.json())
-    .use(publicDir)
+    .use('/static', express.static('public'))
     .use(restFul)
-    .use(rautes)
+    .use(routes)
     .use(session({
         secret: 'secret',
         resave: true,

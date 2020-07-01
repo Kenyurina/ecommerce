@@ -1,7 +1,7 @@
 {
   "name": "ecommerce",
   "version": "1.0.0",
-  "description": "ecommerce con node.js",
+  "description": "ecomerce",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,13 +12,9 @@
     "url": "git+https://github.com/Kenyurina/ecommerce.git"
   },
   "keywords": [
-    "ecommerce",
-    "node",
-    "mysql",
-    "express",
-    "passaport"
+    "ecomerce"
   ],
-  "author": "Kenyuri Camino",
+  "author": "Kenyuri camino",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Kenyurina/ecommerce/issues"
@@ -27,9 +23,8 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
     "express-session": "^1.17.1",
-    "formidable": "^1.2.2",
-    "fs": "0.0.1-security",
     "method-override": "^3.0.0",
     "mysql": "^2.18.1",
     "path": "^0.12.7",

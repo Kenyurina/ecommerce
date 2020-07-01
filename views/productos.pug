@@ -15,7 +15,8 @@ block content
                         th Descripcion
                         th Precio
                         th Cantidad
-                        th Foto                         
+                        th Foto
+                        th(colspan="3")                         
                     each productos in data
                         tr
                             td(scope="col")=productos.id
@@ -23,14 +24,20 @@ block content
                             td(scope="col")=productos.descripcion
                             td(scope="col")=productos.precio
                             td(scope="col")=productos.cantidad
-                            td(scope="col")=productos.foto
+                            td(scope="col")=productos.foto1
+                            td(scope="col")
+                                img.imagen(src="/static/archivos/" + productos.foto1, alt="Foto del Producto")
+                            td(scope="col")
+                                img.imagen(src="/static/archivos/" + productos.foto2, alt="Foto del Producto")
+                            td(scope="col")
+                                img.imagen(src="/static/archivos/" + productos.foto3, alt="Foto del Producto")
                             td(scope="col")
                                 form(method="GET" action="/editprod/" + productos.id)            
                                     input.button.btn.btn-primary( type="submit", value="Editar")
                             td(scope="col") 
-                                form(method="POST" action="/deleteProd/" + productos.id)           
+                                form(method="POST" action="/deleteProd/" + productos.id + '?_method=DELETE')           
                                     input.button.btn.btn-danger(type="submit", value="Eliminar")
         -else
-            p.error No existen Usuarios en la Base de Datos.
+            p.error No existen Productos en la Base de Datos.
 
              //+ usuarios.id 
