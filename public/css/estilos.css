@@ -1,8 +1,15 @@
-/*---------------- Admin Formulario------------------ */
+
+/* Indice  */
+
+/* ---1. Admin Formulario ingresar --- */
+/* ---2. Admin dashboard-- */
+/* ---3. Admin table usuarios -- */
+
+
+
+/*- 1. Admin Formulario ingresar */
 
 .body{
-    /* background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');  */
-    /* background-color: #72d2c6!important; */
     background-image: linear-gradient(#72d2c6, blueviolet);
     background-size: cover;
     background-repeat: no-repeat;
@@ -44,8 +51,31 @@
     color: white;
 }
 
+/*- 2. Admin dashboard */
 
+.sidebar-dark-primary {
+    background-image: linear-gradient(#72d2c6, blueviolet);
+}
+.sidebar-dark-primary>.sidebar>.user-panel {
+    border-bottom: 1px solid transparent;
+}
+.sidebar-dark-primary>.brand-link span {
+    color:white;
+}
+.sidebar-dark-primary>.brand-link {
+    border-bottom: 1px solid transparent!important;
+}
+.nav-treeview>.nav-item>.nav-link i{
+    color: white;
+}
+.sidebar-dark-primary>.sidebar a {
+    color: white!important;
+}
+.nav-item>.active p {
+    color: black;
+}
+.nav-item p {
+    color: white;
+}
 
-
-
-
+/* ---3. Admin table usuarios -- */
