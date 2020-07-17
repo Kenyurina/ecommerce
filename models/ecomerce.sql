@@ -4,17 +4,23 @@ USE ecomerce;
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `apellido` varchar(255) NOT NULL,
   `email` varchar(200) NOT NULL,
   `pass` varchar(255) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `clientes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `apellido` varchar(255) NOT NULL,
+  `edad` varchar(200) NOT NULL,
+  `genero` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
   `pass` varchar(255) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
+  `telefono` int(35) NOT NULL,
+  `ciudad` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -50,5 +56,5 @@ CREATE TABLE `detalleventas` (
   FOREIGN KEY (`idVenta`) REFERENCES `ventas` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `usuarios` (`id`, `email`, `pass`, `nombre`) VALUES
-(1, 'info@programadornovato.com', 'e10adc3949ba59abbe56e057f20f883e', 'eugenio');
+INSERT INTO `usuarios` (id, nombre, apellido, email, pass) VALUES
+(1, "administrador", "administrador", "administrador@ecomerce.com", "$2a$10$vA0XQA3uFtQROU3cHJhHNu19G4G1IM8k1tx0GmRotvwAQ7rMTEp96");

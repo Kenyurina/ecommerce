@@ -4,7 +4,7 @@ block content
     div.container-fluid
         div.row
         h1 Edit user Form
-        form(action="/updateUser" method="POST" class="card-body")
+        form(action="/updateUser?_method=PUT" method="POST" class="card-body")
             div(class="form-group")
                 label(for="exampleInputEmail1") Id
                 input(type="text", class="form-control", name="idcliente", value="" + data[0].id, disabled, required)

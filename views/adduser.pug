@@ -4,10 +4,11 @@ block content
     div.container-fluid
         div.row
         h1 Add user Form
-        form(action="/usuario" method="POST" class="card-body")
+        form(action="/addUsuario" method="POST" class="card-body")
             div(class="form-group")
                 label(for="exampleInputEmail1") Username
                 input(type="text" class="form-control" name="username" placeholder="Username" required)
+                input(type="hidden" class="form-control" name="id" value="0")
             div(class="form-group")
                 label(for="exampleInputPassword1") Password
                 input(type="password" class="form-control"  name="password" placeholder="Password" required)

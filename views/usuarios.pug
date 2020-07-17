@@ -4,6 +4,8 @@ block content
     div.container-fluid
         div.row
         h1 Usuarios.
+            form(method="GET" action="/newuser")            
+                input.btn.btn-success(type="submit", value="Agregar")
         -if(data.length)
             table.table.table-striped
                 thead.thead-dark
@@ -12,9 +14,7 @@ block content
                         th Email
                         th Pass
                         th Nombre
-                        th(colspan="2")  
-                            form(method="GET" action="/newuser")            
-                                input.btn.btn-success(type="submit", value="Agregar")
+                        th(colspan="2")
                     each usuarios in data
                         tr
                             td(scope="col")=usuarios.id
@@ -25,7 +25,7 @@ block content
                                 form(method="GET" action="/editusuario/" + usuarios.id)            
                                     input.button.btn.btn-primary( type="submit", value="Editar")
                             td(scope="col") 
-                                form(method="POST" action="/deleteUser/" + usuarios.id)            
+                                form(method="POST" action="/deleteUser/" + usuarios.id + '?_method=DELETE')            
                                     input.button.btn.btn-danger(type="submit", value="Eliminar")
         -else
             p.error No existen Usuarios en la Base de Datos.

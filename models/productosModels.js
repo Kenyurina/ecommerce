@@ -19,5 +19,3 @@ productosModels.delete = (id, cb) => conn.query('DELETE FROM productos WHERE id 
 //productosModels.insert = (productos, cb) => conn.query('INSERT INTO productos SET ?', productos, cb)
 //productosModels.update = (producto, cb) => conn.query('UPDATE productos SET ? WHERE id = ?', [producto, producto.id], cb)
 module.exports = productosModels
-
-
