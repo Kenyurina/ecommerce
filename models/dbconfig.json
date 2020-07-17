@@ -1,10 +1,12 @@
 {
-    "mysql" : {
-        "host" : "192.168.43.160",
-        "port" : "3306",
-        "user" : "root",
-        "password" : "1qazxsw2*-",
-        "database" : "ecomerce",
-        "insecureAuth" : true
-    }
+  "mysql": {
+    "connectionLimit": 10,
+    "host": "192.168.43.160",
+    "port": "3306",
+    "user": "root",
+    "password": "1qazxsw2*-",
+    "database": "ecomerce",
+    "insecureAuth": true,
+    "_socket": "/var/run/mysqld/mysqld.sock"
+  }
 }

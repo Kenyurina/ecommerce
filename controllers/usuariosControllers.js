@@ -2,6 +2,7 @@
 
 const
     usuariosModels = require('../models/usuariosModels.js'),
+    bcrypt = require('bcryptjs'),
     usuariosControllers = () => {}
 
 usuariosControllers.getall = (req, res, next) => {
@@ -49,13 +50,18 @@ usuariosControllers.adduser = (req, res, next) => {
     res.render('adduser')
 }
 
-usuariosControllers.insert = (req, res, next) => {
-    let usuario = { 
+usuariosControllers.save = (req, res, next) => {
+    let salt = bcrypt.genSaltSync(10)
+    let pass = bcrypt.hashSync(req.body.password, salt)
+    let usuario = {
+        id: req.body.id,
         email: req.body.username, 
-        pass: req.body.password,
+        pass: pass,
         nombre: req.body.nombre
     }
-    usuariosModels.insert( usuario, (err, result) => {
+    console.log([usuario]);
+    
+    usuariosModels.save( usuario, (err, result) => {
         if (err) {
             let locals = {
                 tittle: "Error al agregar el registro a la base de datos",
@@ -67,27 +73,6 @@ usuariosControllers.insert = (req, res, next) => {
             res.redirect('/usuario')   
         }
     } )
-}
-
-usuariosControllers.update = (req, res, next) => {
-    let usuario = { 
-        id: req.body.id,
-        email: req.body.username, 
-        pass: req.body.password,
-        nombre: req.body.nombre
-    }
-    usuariosModels.update( usuario, (err, result) => {
-        if (err) {
-            let locals = {
-                tittle: "Error al actualizar el registro a la base de datos",
-                description: "Error de sintaxis sql",
-                error: err
-            }
-            res.render('error', locals)            
-        } else {
-            res.redirect('/usuario')   
-        }
-    })
 }
 
 usuariosControllers.delete = (req, res, next) => {

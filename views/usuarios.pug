@@ -5,37 +5,37 @@ block user
     div.row
         div.col-lg-12.col-md-12.col-sm-12.col-xs-12
             h1 Usuarios
-                div.card
-                    div.card-body
-                        -if(data.length)
-                            table(id="example1" class="table table-bordered table-striped")
-                                thead
+            form(method="GET" action="/newuser")
+              input.btn.btn-success(type="submit", value="Agregar")
+            div.card
+                div.card-body
+                    -if(data.length)
+                        table(id="example1" class="table table-bordered table-striped")
+                            thead
+                                tr
+                                    th Id
+                                    th Email
+                                    th Pass
+                                    th Nombre
+                                    th(colspan="2")  
+                            tbody
+                                each usuarios in data
                                     tr
-                                        th Id
-                                        th Email
-                                        th Pass
-                                        th Nombre
-                                        th(colspan="2")  
-                                            form(method="GET" action="/newuser")            
-                                                input.btn.btn-success(type="submit", value="Agregar")
-                                tbody
-                                    each usuarios in data
-                                        tr
-                                            td(scope="col")=usuarios.id
-                                            td(scope="col")=usuarios.email
-                                            td(scope="col")=usuarios.pass
-                                            td(scope="col")=usuarios.nombre
-                                            td(scope="col")
-                                                form(method="GET" action="/editusuario/" + usuarios.id)            
-                                                    input.button.btn.btn-primary( type="submit", value="Editar")
-                                            td(scope="col") 
-                                                form(method="POST" action="/deleteUser/" + usuarios.id)            
-                                                    input.button.btn.btn-danger(type="submit", value="Eliminar")
-                                tfoot
-                                    tr
-                                        th Id
-                                        th Email
-                                        th Pass
-                                        th Nombre
-                        -else
-                            p.error No existen Usuarios en la Base de Datos.
+                                        td(scope="col")=usuarios.id
+                                        td(scope="col")=usuarios.email
+                                        td(scope="col")=usuarios.pass
+                                        td(scope="col")=usuarios.nombre
+                                        td(scope="col")
+                                            form(method="GET" action="/editusuario/" + usuarios.id)            
+                                                input.button.btn.btn-primary( type="submit", value="Editar")
+                                        td(scope="col") 
+                                            form(method="POST" action="/deleteUser/" + usuarios.id)            
+                                                input.button.btn.btn-danger(type="submit", value="Eliminar")
+                            tfoot
+                                tr
+                                    th Id
+                                    th Email
+                                    th Pass
+                                    th Nombre
+                    -else
+                        p.error No existen Usuarios en la Base de Datos.
