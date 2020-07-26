@@ -26,10 +26,13 @@ myConn.getConnection((err, connection) => {
     if (err.code === "ECONNREFUSED") {
       console.error("Database connection was refused");
     }
-  }
-
-  if (connection) connection.release();
-  console.log(` DB mysql is Connected `);    
+    if (err.code === "ETIMEDOUT") {
+      console.error("ETIMEDOUT Database connection was refused");
+    }
+  }else{
+    if (connection) connection.release();
+    console.log(` DB mysql is Connected `);  
+  }  
 
   return;
 });

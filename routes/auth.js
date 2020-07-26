@@ -1,29 +1,30 @@
 "use strict";
 
-const 
-  express = require("express"),
+const express = require("express"),
   router = express.Router(),
-  passport = require('passport'),
-  { isLoggedIn } = require('../lib/isauth');
+  passport = require("passport"),
+  logg = require("../lib/isauth");
 
-  router.get('/signup', (req, res) => { 
+  router.get('/signup',logg.isNotLoggedIn,  (req, res) => { 
     console.log('get signup');
-    res.send('FailureSignup')
+    res.render('auth')
   })
-  router.post('/signup', passport.authenticate('local.signup', {
-    successRedirect: '/success',
-    failureRedirect: '/signup',
-    failureFlash: true
-  }));
+  router.post(
+    "/signup",
+    logg.isNotLoggedIn, passport.authenticate("local.signup", {
+      successRedirect: "/success",
+      failureRedirect: "/signup",
+      failureFlash: true,
+    })
+  );
 
-  router.get('/signin', (req, res) => { 
+  router.get('/signin', logg.isNotLoggedIn, (req, res) => { 
     console.log('get signin');
-    res.json({ status: "Inicia" });
+    res.render('login')
   })
 
-  router.post('/signin', (req, res, next) => {
-    console.log(req.body);
-    
+  router.post('/signin', logg.isNotLoggedIn, (req, res, next) => {
+    //console.log(req.body);
     passport.authenticate('local.signin', {
       successRedirect: '/success',
       failureRedirect: '/signin',
@@ -31,15 +32,15 @@ const
     })(req, res, next);
   })
 
-  router.get('/success', isLoggedIn, (req, res) => {
-    res.send('Welcome, this is succes profile');
+  router.get("/success", (req, res) => {
+    console.log('success');
+    res.redirect("/away");
   })
 
   router.get('/logout', (req, res) => {
-
+    console.log("Logout");
+    console.log(req.user);
     req.logOut();
-    console.log('Logout');
-    
     res.redirect('/');
   });
 

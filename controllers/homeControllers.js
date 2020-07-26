@@ -5,7 +5,7 @@ const
     homeControllers = () => {}
 
 homeControllers.getall = (req, res, next) => {
-    res.render('home')
+    res.render('home2')
 }
 
 module.exports = homeControllers

@@ -1,6 +1,6 @@
-extends layout.pug
+extends home2.pug
 
-block content
+block login
     div.body
         div.contain
             div.d-flex.justify-content-center.h-100
@@ -14,14 +14,14 @@ block content
                     //- div.card-body
                     div.container
                         //- h4.title Admin Login
-                        form(action="/auth" method="POST" class="card-body")
+                        form(action="/signin" method="POST" class="card-body")
                             br
                             div(class="form-group")
                                 //- label(for="exampleInputEmail1") Username
                                 input(type="text" class="form-control" name="email" placeholder="Ingresa tu correo electrónico" required)
                             div(class="form-group")
                                 //- label(for="exampleInputPassword1") Password
-                                input(type="password" class="form-control"  name="password" placeholder="Ingresa tu clave" required)
+                                input(type="password" class="form-control"  name="pass" placeholder="Ingresa tu clave" required)
                             div(class="form-group")
                             br
                             button(type="submit" class="btn btn-primary") Entrar
